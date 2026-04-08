@@ -9,4 +9,12 @@ url = "https://api.openweathermap.org/data/2.5/weather?q=Nairobi&APPID=f4f167d2e
 
 response = requests.get(url)
 
-print(response.json())
+data =response.json()
+
+temp = data["main"] ["temp"]
+humidity = data ["main"] ["humidity"]
+description = data["weather"][0]["description"]
+
+print(temp)
+print(humidity)
+print(description)
