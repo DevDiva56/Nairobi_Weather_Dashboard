@@ -3,7 +3,7 @@ import os
 
 from dotenv import load_dotenv
 
-api_key = os.getenv("f4f167d2e82c0f1c54a1aba2f33f1efe")
+api_key = os.getenv
 
 city =input("Enter city name:")
 
