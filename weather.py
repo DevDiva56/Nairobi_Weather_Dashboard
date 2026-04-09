@@ -7,7 +7,7 @@ api_key = os.getenv("f4f167d2e82c0f1c54a1aba2f33f1efe")
 
 city =input("Enter city name:")
 
-url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&APPID=f4f167d2e82c0f1c54a1aba2f33f1efe"
+url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&APPID=
 
 response = requests.get(url)
 
