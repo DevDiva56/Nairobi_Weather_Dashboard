@@ -3,36 +3,41 @@ import os
 
 from dotenv import load_dotenv
 
-api_key = os.getenv("f4f167d2e82c0f1c54a1aba2f33f1efe")
+load_dotenv()
+
+api_key = os.getenv("API_KEY")
+
 
 city =input("Enter city name:")
 
-url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&APPID=f4f167d2e82c0f1c54a1aba2f33f1efe"
+url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
 
 response = requests.get(url)
 
 data =response.json()
 
-temp = data["main"] ["temp"]
-humidity = data ["main"] ["humidity"]
-description = data["weather"][0]["description"]
-
-if "clear" in description.lower():
-   emoji ="☀️"
-   
-elif "cloud" in description.lower():
-    emoji ="⛅"
-    
-elif "rainy" in description.lower():
-    emoji="🌧️"
-    
+if data.get("cod") != 200:
+    print("Error:", data.get("Error"))
 else:
-    emoji="✨"
+     temp = data["main"] ["temp"]
+     humidity = data ["main"] ["humidity"]
+     description = data["weather"][0]["description"]
+
+     if "clear" in description.lower():
+      emoji ="☀️"
+   
+     elif "cloud" in description.lower():
+      emoji ="⛅"
+    
+     elif "rainy" in description.lower():
+      emoji="🌧️"
+    
+     else:
+      emoji="✨"
     
 # print(temp)
 # print(humidity)
 # print(description)
-
-print(f"weather in {city}:{description}{emoji}")
-print(f"Temperature:{temp}°C")
-print(f"Humidity:{humidity}%")
+     print(f"weather in {city}:{description}{emoji}")
+     print(f"Temperature:{temp}°C")
+     print(f"Humidity:{humidity}%")
