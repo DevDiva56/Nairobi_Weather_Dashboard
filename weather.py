@@ -8,6 +8,7 @@ load_dotenv()
 api_key = os.getenv("API_KEY")
 
 
+
 city =input("Enter city name:")
 
 url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
